@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "{{name}}",
   "version": "1.0.0",
-  "description": "test",
+  "description": "{{description}}",
   "scripts": {
     "dev": " webpack-dev-server --inline --config webpack.config.js",
     "prod": "webpack-dev-server --inline--config webpack.config.js",
@@ -29,6 +29,6 @@
     "webpack-cli": "^3.2.0",
     "webpack-dev-server": "^3.1.14"
   },
-  "author": "chasingdream",
+  "author": "{{author}}",
   "license": "MIT"
 }
