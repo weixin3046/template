@@ -1,1 +1,3 @@
-index.js
+import('./style/index.scss');
+
+console.log("hello,world")

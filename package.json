@@ -1,10 +1,34 @@
 {
-  "name": "{{name}}",
+  "name": "template",
   "version": "1.0.0",
-  "description": "{{description}}",
+  "description": "test",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": " webpack-dev-server --inline --config webpack.config.js",
+    "prod": "webpack-dev-server --inline--config webpack.config.js",
+    "bulid": "webpack -d --config webpack.config.js"
   },
-  "author": "{{author}}",
-  "license": "ISC"
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "pug": "^2.0.3",
+    "pug-html-loader": "^1.1.5",
+    "raw-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "author": "chasingdream",
+  "license": "MIT"
 }
