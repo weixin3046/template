@@ -1,9 +1,12 @@
-const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 // const config = require('../config')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin') // 在webpack中拷贝文件和文件夹
+// 传送门:https://doc.webpack-china.org/plugins/copy-webpack-plugin/#src/components/Sidebar/Sidebar.jsx
 //const CleanWebpackPlugin = require('clean-webpack-plugin'); //清除文件
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var webpack = require('webpack');
 // let pathsToClean = [
 // 	'dist',
@@ -23,13 +26,19 @@ const config = {
 	},
 	devServer: { //服务器
 		clientLogLevel: 'none',
+		host: 'localhost',
 		compress: true, //压缩
 		port: 9010, //端口
 		open: true, //自动打开浏览器
 		publicPath: '/',
 		quiet: true,
+		//proxy: {},// 代理设置
+		// watchOptions: {
+		//    poll: true||false,
+		// }
+		// webpack使用文件系统（file system）获取文件改动的通知
 		contentBase: false, //它指定了服务器资源的根目录，如果不写入contentBase的值，那么contentBase默认是项目的目录。
-		overlay: true, //这个配置属性用来在编译出错的时候，在浏览器页面上显示错误
+		overlay: { warnings: false, errors: true }, //这个配置属性用来在编译出错的时候，在浏览器页面上显示错误
 		//hot: true, //启用 webpack 的模块热替换特性：
 		inline: true //自动刷新
 	},
@@ -45,9 +54,15 @@ const config = {
 			minify: {
 				collapseWhitespace: true,
 			},
-			inject: true,// js文件插入到body中，可能的选项有 true, 'head', 'body', false
+			inject: true, // js文件插入到body中，可能的选项有 true, 'head', 'body', false
 			hash: true,
 		}),
+		//暂时不能用
+		// new CopyWebpackPlugin([{
+		// 	from: path.resolve(__dirname, '../static'),
+		// 	to: 'dist',
+		// 	ignore: ['.*']
+		// }])
 	],
 	//script引入js类库，通过require或import的方式来使用，却不希望webpack把它编译到输出文件中。
 	//比如不想这么用 const $ = window.jQuery 而是这么用 const $ = require("jquery") or import $ from "jquery"; 则配置"jquery": "jQuery"
@@ -80,4 +95,10 @@ for (let prop in config.entry) {
 		'babel-polyfill'
 	);
 }
+//暂时不能用
+// config.plugins.push(new FriendlyErrorsPlugin({
+//         compilationSuccessInfo: {
+//           messages: [`Your application is running here: http://${config.devServer.host}:${config.devServer.port}`],
+//         },
+//       }))
 module.exports = config;
