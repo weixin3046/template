@@ -22,10 +22,13 @@ const config = {
 		extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
 	},
 	devServer: { //服务器
+		clientLogLevel: 'none',
 		compress: true, //压缩
 		port: 9010, //端口
 		open: true, //自动打开浏览器
-		contentBase: path.join(__dirname, 'dist'), //它指定了服务器资源的根目录，如果不写入contentBase的值，那么contentBase默认是项目的目录。
+		publicPath: '/',
+		quiet: true,
+		contentBase: false, //它指定了服务器资源的根目录，如果不写入contentBase的值，那么contentBase默认是项目的目录。
 		overlay: true, //这个配置属性用来在编译出错的时候，在浏览器页面上显示错误
 		//hot: true, //启用 webpack 的模块热替换特性：
 		inline: true //自动刷新
@@ -42,6 +45,7 @@ const config = {
 			minify: {
 				collapseWhitespace: true,
 			},
+			inject: true,// js文件插入到body中，可能的选项有 true, 'head', 'body', false
 			hash: true,
 		}),
 	],
