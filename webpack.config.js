@@ -2,7 +2,7 @@ const path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 // const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");//暂时废弃
 const CopyWebpackPlugin = require('copy-webpack-plugin') // 在webpack中拷贝文件和文件夹
 // 传送门:https://doc.webpack-china.org/plugins/copy-webpack-plugin/#src/components/Sidebar/Sidebar.jsx
 //const CleanWebpackPlugin = require('clean-webpack-plugin'); //清除文件
